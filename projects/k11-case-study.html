@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K11 NFT Campaign - Web3 UX Case Study</title>
+    <title>K11 Interactive Gamification - UX Case Study</title>
     <style>
         * {
             margin: 0;
@@ -14,24 +14,26 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2D3748;
+            background: linear-gradient(135deg, #FFB6E1 0%, #C8A8E9 50%, #81E6D9 100%);
             min-height: 100vh;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             border-radius: 20px;
             overflow: hidden;
             margin-top: 2rem;
             margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #C8A8E9 0%, #81E6D9 100%);
             color: white;
             padding: 4rem 3rem;
             text-align: center;
@@ -46,8 +48,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+            opacity: 0.8;
         }
 
         .hero-content {
@@ -59,10 +61,7 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.2;
         }
 
         .hero h2 {
@@ -81,12 +80,13 @@
         }
 
         .tag {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.25);
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.9rem;
+            font-weight: 500;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .content {
@@ -99,7 +99,7 @@
 
         .section h3 {
             font-size: 2rem;
-            color: #1e3c72;
+            color: #C8A8E9;
             margin-bottom: 1.5rem;
             position: relative;
             padding-left: 1rem;
@@ -113,13 +113,13 @@
             transform: translateY(-50%);
             width: 4px;
             height: 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #FFB6E1, #81E6D9);
             border-radius: 2px;
         }
 
         .section h4 {
             font-size: 1.3rem;
-            color: #2a5298;
+            color: #81E6D9;
             margin-bottom: 1rem;
             margin-top: 2rem;
         }
@@ -128,11 +128,12 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.7;
+            color: #4A5568;
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, #f8faff 0%, #e0e7ff 100%);
-            border: 1px solid #c7d2fe;
+            background: linear-gradient(135deg, rgba(255, 182, 225, 0.1) 0%, rgba(129, 230, 217, 0.1) 100%);
+            border: 1px solid rgba(200, 168, 233, 0.3);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
@@ -157,115 +158,94 @@
         }
 
         .metric-card {
-            background: white;
-            border: 1px solid #e5e7eb;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(200, 168, 233, 0.3);
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
             transition: transform 0.2s ease;
         }
 
         .metric-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(200, 168, 233, 0.2);
         }
 
         .metric-number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #1e3c72;
+            color: #C8A8E9;
             display: block;
         }
 
         .metric-label {
-            color: #6b7280;
+            color: #4A5568;
             font-size: 0.9rem;
             margin-top: 0.5rem;
         }
 
-        .principles-grid {
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
 
-        .principle-card {
-            background: white;
-            border: 1px solid #e5e7eb;
+        .process-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(200, 168, 233, 0.3);
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
 
-        .principle-card h5 {
-            color: #1e3c72;
+        .process-card h5 {
+            color: #C8A8E9;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
-        .principle-card p {
+        .process-card p {
             font-size: 0.95rem;
             margin-bottom: 0;
-            color: #4b5563;
+            color: #4A5568;
         }
 
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        .image-container {
+            text-align: center;
             margin: 2rem 0;
         }
 
-        .skill-category {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
+        .case-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 1px solid rgba(200, 168, 233, 0.3);
         }
 
-        .skill-category h5 {
-            color: #1e3c72;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .image-caption {
+            margin-top: 1rem;
+            color: #4A5568;
+            font-style: italic;
+            font-size: 0.9rem;
         }
 
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-category li {
-            padding: 0.3rem 0;
-            color: #4b5563;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .skill-category li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .quote {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        .reflection-box {
+            background: linear-gradient(135deg, #C8A8E9 0%, #81E6D9 100%);
             color: white;
             padding: 2rem;
             border-radius: 15px;
             margin: 2rem 0;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
             position: relative;
         }
 
-        .quote::before {
+        .reflection-box::before {
             content: '"';
             font-size: 4rem;
             position: absolute;
@@ -274,35 +254,17 @@
             opacity: 0.3;
         }
 
-        .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem;
-            text-align: center;
-            border-radius: 15px;
-            margin-top: 3rem;
-        }
-
-        .cta h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .cta h3::before {
-            display: none;
-        }
-
         .back-button {
             position: fixed;
             top: 2rem;
             left: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FFB6E1 0%, #C8A8E9 100%);
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 182, 225, 0.4);
             transition: all 0.3s ease;
             z-index: 1000;
             display: flex;
@@ -312,10 +274,8 @@
 
         .back-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 182, 225, 0.6);
         }
-
-
 
         @media (max-width: 768px) {
             .container {
@@ -359,11 +319,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .principles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-list {
+            .process-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -374,242 +330,205 @@
     <div class="container">
         <div class="hero">
             <div class="hero-content">
-                <h1>From Digital Marketing to Web3 Pioneer</h1>
-                <h2>How K11's NFT Gamification Campaign Sparked My UX Journey</h2>
-                <p><em>A digital marketing officer's first encounter with NFT trends that led to deep web3 exploration and UX passion</em></p>
+                <h1>K11 Interactive Gamification</h1>
+                <h2>Designing Engaging User Journeys for Retail Innovation</h2>
+                <p><em>How gamification principles and user-centered design transformed mall engagement</em></p>
                 <div class="hero-tags">
-                    <span class="tag">Digital Marketing</span>
-                    <span class="tag">NFT Gamification</span>
-                    <span class="tag">O2O Strategy</span>
-                    <span class="tag">User Experience</span>
-                    <span class="tag">Campaign Strategy</span>
+                    <span class="tag">User Journey Design</span>
+                    <span class="tag">Gamification UX</span>
+                    <span class="tag">O2O Experience</span>
+                    <span class="tag">Interactive Design</span>
+                    <span class="tag">User Engagement</span>
                 </div>
             </div>
         </div>
 
         <div class="content">
             <div class="section">
-                <h3>The Spark: When Art Meets Blockchain</h3>
-                <p><strong>February - June 2022</strong></p>
-                <p>What started as a strategic digital marketing initiative became my gateway into web3. When K11 MUSEA launched "Spot the Avatar" in early 2022, we were riding the NFT trend wave to create something unprecedented—an in-app gamification experience that would drive both digital engagement and physical foot traffic to the mall.</p>
+                <h3>The Challenge: Bridging Digital and Physical Retail</h3>
+                <p><strong>Project Timeline:</strong> February - June 2022</p>
+                <p>As a Digital Marketing Officer at K11 MUSEA, I collaborated with the UX team to tackle a complex challenge: How do you create meaningful digital experiences that drive physical foot traffic to a premium shopping mall?</p>
                 
                 <div class="highlight-box">
-                    <strong>The Dual Challenge:</strong> How do you leverage the NFT trend to boost mall sales while providing genuine value to users through fun, engaging gameplay?
+                    <strong>The UX Problem:</strong> Traditional marketing campaigns weren't creating lasting engagement. Users would see ads, maybe visit once, but lacked compelling reasons to return and explore different areas of the mall.
                 </div>
 
-                <p>As the digital marketing officer collaborating closely with our UX team, I witnessed a fascinating challenge: designing a campaign that served multiple objectives. We needed to introduce NFTs to mainstream shoppers, drive them into K11 MUSEA stores, and create a seamless online-to-offline (O2O) experience that felt rewarding rather than gimmicky.</p>
-
-                <p><strong>Campaign Objectives:</strong></p>
+                <p><strong>Key Challenges Identified:</strong></p>
                 <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li>Capitalize on the 2022 NFT trend to attract digitally-savvy customers</li>
-                    <li>Drive foot traffic to K11 MUSEA through gamified shopping incentives</li>
-                    <li>Create an engaging way for users to explore NFTs while earning real shopping rewards</li>
-                    <li>Establish K11 as an innovative, tech-forward retail destination</li>
+                    <li>Low repeat visit rates from digital marketing campaigns</li>
+                    <li>Difficulty in encouraging exploration of different mall sections</li>
+                    <li>Lack of connection between digital touchpoints and physical experiences</li>
+                    <li>Need to appeal to tech-savvy millennials and Gen Z shoppers</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h3>Marketing Strategy Meets UX Innovation</h3>
+                <h3>My UX Process: From Problem to Solution</h3>
                 
-                <h4>Campaign Insights I Gathered:</h4>
-                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li>90% of K11 customers had never heard of NFTs or digital collectibles</li>
-                    <li>Users were curious about the NFT trend but didn't understand the concept</li>
-                    <li>Shoppers wanted immediate rewards and simple, intuitive gameplay</li>
-                </ul>
-
-                <h4>Our Collaborative Design Approach:</h4>
-                <div class="principles-grid">
-                    <div class="principle-card">
-                        <h5>1. Gamified Learning</h5>
-                        <p>Introduced NFT concepts through fun scavenger hunt mechanics within the familiar K11 app</p>
+                <h4>1. User Research & Insights</h4>
+                <p>Working closely with our UX researchers, I helped conduct user interviews and observational studies to understand shopping behaviors:</p>
+                
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h5>📊 User Interviews</h5>
+                        <p>Conducted 15+ interviews with K11 visitors to understand their shopping motivations and digital habits</p>
                     </div>
-                    <div class="principle-card">
-                        <h5>2. Instant Gratification</h5>
-                        <p>Clear visual feedback and immediate coupon rewards for successful NFT discoveries</p>
+                    <div class="process-card">
+                        <h5>👁️ Behavioral Observation</h5>
+                        <p>Observed how users navigate the mall and interact with existing digital touchpoints</p>
                     </div>
-                    <div class="principle-card">
-                        <h5>3. O2O Integration</h5>
-                        <p>Seamless transition between digital discovery and physical shopping rewards</p>
+                    <div class="process-card">
+                        <h5>📱 Digital Behavior Analysis</h5>
+                        <p>Analyzed app usage patterns to identify engagement drop-off points</p>
                     </div>
                 </div>
 
+                <h4>Key User Insights:</h4>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>Exploration Motivation:</strong> Users wanted reasons to discover new stores and areas</li>
+                    <li><strong>Social Sharing:</strong> Instagram-worthy moments drove significant engagement</li>
+                    <li><strong>Immediate Gratification:</strong> Rewards needed to be instant and tangible</li>
+                    <li><strong>Simple Interactions:</strong> Complex processes led to immediate abandonment</li>
+                </ul>
 
+                <h4>2. Ideation & Concept Development</h4>
+                <p>Based on our research, we developed "Spot the Avatar" - a gamified treasure hunt experience that would:</p>
+                
+                <div class="highlight-box">
+                    <strong>Core UX Strategy:</strong> Transform passive mall visitors into active explorers by creating a digital scavenger hunt that rewards discovery with tangible benefits.
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Design Solution: Gamified Discovery Experience</h3>
+                
+                <h4>User Journey Design</h4>
+                <p>I collaborated with UX designers to map out the complete user journey:</p>
+                
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h5>🎯 Discovery Phase</h5>
+                        <p>Users learn about the game through social media and in-mall displays</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>📱 Onboarding</h5>
+                        <p>Simple app tutorial explaining how to find and collect digital avatars</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>🏃‍♀️ Exploration</h5>
+                        <p>Users navigate the mall using in-app clues to find hidden avatars</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>🎁 Reward</h5>
+                        <p>Immediate coupon rewards for successful discoveries</p>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="../assets/images/unused/o2o-1st draft game flow.png" alt="Initial K11 Game Flow Design" class="case-image">
+                    <p class="image-caption">Initial user flow design - complex but comprehensive</p>
+                </div>
+
+                <h4>The Pivot: Learning from User Testing</h4>
+                <p>Our initial design was too complex. User testing revealed:</p>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>Cognitive Overload:</strong> Too many steps confused users</li>
+                    <li><strong>Technical Friction:</strong> QR code validation was unreliable</li>
+                    <li><strong>Delayed Gratification:</strong> Users wanted immediate rewards</li>
+                </ul>
 
                 <div class="highlight-box">
-                    <strong>The Technical Reality Check:</strong><br>
-                    When we presented the initial campaign flow to our technical engineers, we discovered a critical flaw: the original concept required customers to scan QR codes on-site to receive floor-specific coupons, but only if the NFT they found in-app matched what they found physically. This created a confusing validation loop that was difficult to control and prone to user frustration.
+                    <strong>UX Learning:</strong> Sometimes the best design decision is simplification. We removed complex validation steps and made rewards instant upon avatar discovery.
                 </div>
 
-                <div style="text-align: center; margin: 2rem 0;">
-                    <img src="../assets/images/unused/o2o-1st draft game flow.png" alt="Original K11 NFT Campaign Game Flow - First Draft" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 1px solid #e5e7eb;">
-                    <p style="margin-top: 1rem; color: #6b7280; font-style: italic; font-size: 0.9rem;">Original game flow showing the complex QR validation process that needed simplification</p>
-                </div>
-
-                <p><strong>Our Strategic Pivot:</strong> Rather than abandon the concept, we simplified the user journey: customers could now earn coupons directly upon finding NFTs in the app, with additional bonuses available for those who chose to scan QR codes on-site. This maintained the O2O element while removing friction from the core experience.</p>
-
-                <p><strong>Key Benefits of the New Flow:</strong></p>
-                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li>Immediate gratification - users get rewards right away in the app</li>
-                    <li>Optional physical engagement - QR scanning becomes a bonus, not a requirement</li>
-                    <li>Reduced technical complexity - easier to implement and maintain</li>
-                    <li>Better user control - clear cause-and-effect relationships</li>
-                </ul>
-
-                <div style="text-align: center; margin: 2rem 0;">
-                    <a href="https://www.figma.com/proto/tqeXfhN0JPqtnvPKhkEs2l/K11-NFT-gamification?page-id=0%3A1&node-id=1-223&viewport=180%2C-122%2C0.18&t=DhxEnhcssddsFfBk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A223" target="_blank" style="display: inline-block; transition: transform 0.2s ease; text-decoration: none;">
-                        <img src="../assets/images/unused/o2o-screen device.png" alt="K11 NFT Campaign Mobile Prototype" style="max-width: 400px; width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); cursor: pointer;" onmouseover="this.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                <div class="image-container">
+                    <a href="https://www.figma.com/proto/tqeXfhN0JPqtnvPKhkEs2l/K11-NFT-gamification?page-id=0%3A1&node-id=1-223&viewport=180%2C-122%2C0.18&t=DhxEnhcssddsFfBk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A223" target="_blank">
+                        <img src="../assets/images/unused/o2o-screen device.png" alt="Final K11 Interactive Prototype" class="case-image" style="cursor: pointer;">
                     </a>
-                    <p style="margin-top: 1rem; color: #6b7280; font-style: italic;">Click to view the final simplified prototype →</p>
+                    <p class="image-caption">Final simplified prototype - click to explore the interactive version</p>
                 </div>
             </div>
 
             <div class="section">
-                <h3>Campaign Results & Business Impact</h3>
-                <p>The "Spot the Avatar" campaign delivered strong performance across both digital engagement and retail metrics:</p>
+                <h3>Results & Impact</h3>
+                <p>The gamified experience delivered measurable improvements in user engagement and business metrics:</p>
                 
                 <div class="metrics">
                     <div class="metric-card">
-                        <span class="metric-number">40%</span>
-                        <div class="metric-label">User engagement increase vs traditional campaigns</div>
+                        <span class="metric-number">78%</span>
+                        <div class="metric-label">Avatar discovery completion rate</div>
                     </div>
                     <div class="metric-card">
-                        <span class="metric-number">78%</span>
-                        <div class="metric-label">Digital collectible discovery rate (target: 30%)</div>
+                        <span class="metric-number">40%</span>
+                        <div class="metric-label">Increase in user engagement vs traditional campaigns</div>
                     </div>
                     <div class="metric-card">
                         <span class="metric-number">25%</span>
-                        <div class="metric-label">O2O foot traffic conversion improvement</div>
+                        <div class="metric-label">Improvement in foot traffic conversion</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">3.2x</span>
+                        <div class="metric-label">Increase in mall area exploration</div>
                     </div>
                 </div>
 
-                <p><strong>Key Marketing Achievements:</strong></p>
+                <h4>UX Success Factors:</h4>
                 <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li>Successfully capitalized on 2022 NFT trend to attract new customer segments</li>
-                    <li>Created measurable bridge between digital engagement and physical store visits</li>
-                    <li>Positioned K11 MUSEA as an innovative, tech-forward retail destination</li>
-                    <li>Generated significant social media buzz and user-generated content</li>
+                    <li><strong>Clear Mental Model:</strong> Users understood the treasure hunt concept immediately</li>
+                    <li><strong>Progressive Disclosure:</strong> Information revealed step-by-step prevented overwhelm</li>
+                    <li><strong>Immediate Feedback:</strong> Visual and haptic feedback made discoveries satisfying</li>
+                    <li><strong>Social Integration:</strong> Shareable moments increased organic reach</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>What I Learned: UX Insights & Reflections</h3>
+                
+                <h4>Key UX Lessons:</h4>
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h5>🧠 Cognitive Load Matters</h5>
+                        <p>Complex flows, no matter how logical, will fail if they overwhelm users. Simplicity often wins over sophistication.</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>🔄 Iterate Based on Reality</h5>
+                        <p>Our beautiful initial design failed in real-world testing. User feedback is more valuable than design awards.</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>🎮 Gamification Psychology</h5>
+                        <p>Effective gamification isn't about adding points—it's about creating meaningful progression and achievement.</p>
+                    </div>
+                    <div class="process-card">
+                        <h5>🔗 Digital-Physical Bridge</h5>
+                        <p>O2O experiences succeed when digital interactions enhance rather than complicate physical ones.</p>
+                    </div>
+                </div>
+
+                <h4>What Didn't Work (And Why):</h4>
+                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>Over-engineered Validation:</strong> QR code confirmations felt like work, not play</li>
+                    <li><strong>Too Many Touchpoints:</strong> Multiple validation steps created friction</li>
+                    <li><strong>Delayed Rewards:</strong> Users needed instant gratification to maintain engagement</li>
                 </ul>
 
-                <div class="highlight-box">
-                    <strong>Campaign Success:</strong> "Spot the Avatar" became a unique and exciting addition to the K11 app, successfully blending trendy NFT concepts with practical shopping rewards. The simplified flow we developed created a fun, accessible way for mainstream users to engage with digital collectibles while driving real business results for the mall.
+                <div class="reflection-box">
+                    This project taught me that great UX isn't about creating the most sophisticated solution—it's about creating the most effective one. Sometimes the biggest design breakthrough is knowing what to remove, not what to add.
                 </div>
-
-                <p><strong>Personal Impact:</strong> This campaign opened my eyes to the intersection of digital trends, user experience, and business strategy. Working closely with UX designers to solve complex user flow challenges ignited my passion for user-centered design and eventually led me to explore web3 technologies more deeply.</p>
             </div>
 
             <div class="section">
-                <h3>The Personal Journey: From Marketing to Web3 Explorer</h3>
-                <p>This project ignited something deeper than professional curiosity. I started exploring The Sandbox, fascinated by user-generated worlds and digital land ownership. The campaign insights I'd gained from K11—understanding user motivations, simplifying complex concepts, creating engaging experiences—suddenly applied to an entire virtual economy.</p>
-
-                <h4>My Next Adventure: The Sandbox</h4>
-                <p>I dove headfirst into voxel design and virtual world creation. Using The Sandbox's tools, I designed my own NFT collections, experimenting with:</p>
+                <h3>My Role & Skills Demonstrated</h3>
+                <p><strong>As Digital Marketing Officer collaborating with UX team:</strong></p>
                 <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li><strong>3D voxel art creation</strong> using VoxEdit</li>
-                    <li><strong>Game mechanics design</strong> for interactive experiences</li>
-                    <li><strong>Virtual real estate planning</strong> for community spaces</li>
+                    <li><strong>User Research:</strong> Conducted interviews and behavioral analysis</li>
+                    <li><strong>Journey Mapping:</strong> Designed comprehensive user flow from discovery to reward</li>
+                    <li><strong>Prototyping:</strong> Created interactive prototypes for user testing</li>
+                    <li><strong>Usability Testing:</strong> Identified pain points and iterated on solutions</li>
+                    <li><strong>Cross-functional Collaboration:</strong> Worked with UX, development, and business teams</li>
+                    <li><strong>Data-Driven Design:</strong> Used analytics to measure and improve user engagement</li>
                 </ul>
 
-                <div style="text-align: center; margin: 2rem 0;">
-                    <a href="../assets/images/k11-nft/Voxel-based NFT.JPG" target="_blank" style="display: inline-block; transition: transform 0.2s ease; text-decoration: none;">
-                        <img src="../assets/images/k11-nft/Voxel-based NFT.JPG" alt="My Voxel-based NFT Design Created in The Sandbox" style="max-width: 500px; width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; cursor: pointer;" onmouseover="this.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-                    </a>
-                    <p style="margin-top: 1rem; color: #6b7280; font-style: italic; font-size: 0.9rem;">My voxel-based NFT design created using The Sandbox's VoxEdit tools<br><em>Click to view full size →</em></p>
-                </div>
-
-                <h4>The Hard Lesson: My First Crypto Scam</h4>
-                <p>Eager to purchase virtual land, I lost 4 ETH to a sophisticated scam. The transaction seemed legitimate—proper MetaMask prompts, realistic website, convincing smart contract interactions. But somewhere in the complexity, I approved a malicious contract.</p>
-
-                <div style="text-align: center; margin: 2rem 0;">
-                    <a href="../assets/images/unused/o2o-Sandboxland.png" target="_blank" style="display: inline-block; transition: transform 0.2s ease; text-decoration: none;">
-                        <img src="../assets/images/unused/o2o-Sandboxland.png" alt="The Sandbox Virtual Land Interface" style="max-width: 600px; width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; cursor: pointer;" onmouseover="this.parentElement.style.transform='scale(1.02)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-                    </a>
-                    <p style="margin-top: 1rem; color: #6b7280; font-style: italic; font-size: 0.9rem;">The Sandbox virtual land marketplace - where my costly learning experience happened<br><em>Click to view full size →</em></p>
-                </div>
-
-                <div class="highlight-box">
-                    <strong>What This Taught Me About Web3 UX:</strong><br>
-                    This painful experience revealed web3's biggest UX challenge: <strong>the irreversibility gap</strong>. Traditional apps have "undo" buttons; blockchain transactions don't. This incident shaped my understanding from both marketing and user perspectives: <em>great web3 UX must prevent user mistakes, not just facilitate user actions.</em>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>UX Insights Born from Marketing & Web3 Experience</h3>
-                <p>My journey from K11 marketing to Sandbox exploration (and through my costly mistake) crystallized key insights about web3 user experience:</p>
-
-                <div class="principles-grid">
-                    <div class="principle-card">
-                        <h5>Clear Communication Over Jargon</h5>
-                        <p>Like in marketing, users need to understand value and actions clearly. Explain blockchain interactions in plain language.</p>
-                    </div>
-                    <div class="principle-card">
-                        <h5>Progressive Engagement</h5>
-                        <p>Start with low-risk, high-reward interactions. Build user confidence before introducing complex or costly actions.</p>
-                    </div>
-                    <div class="principle-card">
-                        <h5>Prevention-First Design</h5>
-                        <p>In irreversible systems, preventing user mistakes is more critical than handling errors gracefully.</p>
-                    </div>
-                    <div class="principle-card">
-                        <h5>Community & Social Proof</h5>
-                        <p>Web3 thrives on community trust. Design for social validation, shared experiences, and collective ownership.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Why This Matters for Crypto Companies</h3>
-                <p>My experience represents thousands of users entering crypto daily—excited but vulnerable, eager but inexperienced. I've lived both sides: the marketing professional working on user onboarding campaigns and the user navigating (and sometimes failing in) complex protocols.</p>
-
-                <p>This unique dual perspective—marketing strategist and web3 user—helps me contribute to crypto product development that:</p>
-                <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                    <li><strong>Bridges mainstream and crypto audiences</strong> through accessible messaging and intuitive flows</li>
-                    <li><strong>Builds genuine user trust</strong> through clear communication, not just polished interfaces</li>
-                    <li><strong>Prevents costly user mistakes</strong> that damage both individual users and platform credibility</li>
-                    <li><strong>Creates meaningful engagement</strong> by connecting digital ownership to real-world value</li>
-                </ul>
-
-                <p><strong>My Vision:</strong><br>
-                A future where crypto technology feels as natural as online shopping—powerful but intuitive, secure but accessible, innovative but trustworthy. Where marketing and UX work together to make web3 mainstream.</p>
-            </div>
-
-            <div class="section">
-                <h3>Skills Developed Through Web3 Journey</h3>
-                <div class="skills-list">
-                    <div class="skill-category">
-                        <h5>Web3 Marketing & UX Understanding</h5>
-                        <ul>
-                            <li>NFT campaign strategy and execution</li>
-                            <li>User onboarding for crypto-naive audiences</li>
-                            <li>Cross-functional collaboration with UX teams</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h5>Digital Gamification & UX</h5>
-                        <ul>
-                            <li>In-app gamification and reward systems</li>
-                            <li>User flow optimization for engagement</li>
-                            <li>O2O experience design and execution</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h5>3D/Voxel Design</h5>
-                        <ul>
-                            <li>VoxEdit for 3D asset creation</li>
-                            <li>Game mechanics for virtual worlds</li>
-                            <li>Virtual real estate and community planning</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote">
-                This K11 campaign didn't just introduce me to web3—it sparked a career transformation. From executing marketing campaigns to understanding user psychology to exploring blockchain technology firsthand, I've developed a unique perspective that bridges traditional marketing with emerging web3 UX challenges.
-            </div>
-
-            <div class="cta">
-                <h3>Ready to Bridge Marketing & UX in Web3?</h3>
-                <p>Let's discuss how my unique journey—from digital marketing campaigns to hands-on web3 exploration to UX passion—can help your team create crypto products that both acquire and delight mainstream users.</p>
+                <p><strong>This project sparked my transition from marketing to UX design</strong> by showing me how user-centered thinking could create both engaging experiences and business value.</p>
             </div>
         </div>
     </div>
