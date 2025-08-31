@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sharon Tsang - UI/UX Designer Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.4;
+      color: #1a1a1a;
+      background: white;
+      font-size: 10pt;
+    }
+
+    .resume-container {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.6in;
+      background: white;
+      min-height: 11in;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #6366f1;
+      padding-bottom: 0.75rem;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info {
+      font-size: 9pt;
+      color: #4b5563;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .section {
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #6366f1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.2rem;
+    }
+
+    .summary {
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #374151;
+      margin-bottom: 0.4rem;
+    }
+
+    .experience-item {
+      margin-bottom: 0.8rem;
+      page-break-inside: avoid;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.3rem;
+    }
+
+    .job-title {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .company {
+      font-size: 10pt;
+      color: #6366f1;
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 9pt;
+      color: #6b7280;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .achievements {
+      list-style: none;
+      margin-top: 0.3rem;
+    }
+
+    .achievements li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.25rem;
+      font-size: 9.5pt;
+      line-height: 1.4;
+    }
+
+    .achievements li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #6366f1;
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .skill-category {
+      background: #f8fafc;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border-left: 3px solid #6366f1;
+    }
+
+    .skill-category-title {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+      font-size: 10pt;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      display: inline-block;
+      background: white;
+      padding: 0.2rem 0.4rem;
+      margin: 0.1rem;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      border: 1px solid #e5e7eb;
+    }
+
+    .education-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .degree {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 10pt;
+    }
+
+    .school {
+      color: #6366f1;
+      font-weight: 500;
+    }
+
+    .key-projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .project-item {
+      background: #f8fafc;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border-left: 3px solid #ec4899;
+    }
+
+    .project-title {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 10pt;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-desc {
+      font-size: 9pt;
+      color: #4b5563;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-tags {
+      font-size: 8pt;
+      color: #6366f1;
+      font-weight: 500;
+    }
+
+    .highlight {
+      background: #fef3c7;
+      padding: 0.125rem 0.25rem;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    @media print {
+      @page {
+        margin: 0;
+        size: A4;
+      }
+      body { 
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        margin: 0;
+        padding: 0;
+      }
+      .resume-container {
+        padding: 0.5in;
+        box-shadow: none;
+        margin: 0;
+      }
+      .page-break {
+        page-break-before: always;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <header class="header">
+      <h1 class="name">Ng Man Shan (Sharon)</h1>
+      <div class="contact-info">
+        <span>📧 shannms423@gmail.com</span>
+        <span>📱 +852 5311 8503</span>
+        <span>📍 Hong Kong, China</span>
+        <span>🌐 sharonng123.github.io/sharon_portfolio</span>
+        <span>💼 UI/UX Designer</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary">
+        <strong>From social science to digital innovation</strong> — I'm a self-taught UI/UX designer who discovered my passion for creating meaningful human-computer interactions. With <span class="highlight">3+ years transforming complex problems into intuitive solutions</span>, I've designed AI-powered search systems, AR beauty experiences, and gamified retail journeys for <span class="highlight">10M+ users across Asia</span>. My unique blend of user psychology, cultural research (28+ interviews across Thailand & Malaysia), and technical curiosity drives me to create digital experiences that don't just function beautifully — they genuinely improve people's lives. Currently pioneering the future of design by integrating AI tools with human-centered creativity.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="job-title">UX & Design Specialist</div>
+            <div class="company">AS Watson Group (Watsons) • Asia's Largest Health & Beauty Retailer</div>
+          </div>
+          <div class="date">Oct 2023 — Present</div>
+        </div>
+        <ul class="achievements">
+          <li>Led end-to-end UX/UI design for app, web, and mobile platforms, creating seamless experiences for <span class="highlight">virtual product selling, AI-powered search, AI Chatbot, personalized experiences, and gamified campaigns</span></li>
+          <li>Pioneered innovative digital solutions including <span class="highlight">AR beauty try-on tool</span> and in-store beauty service booking system (Watsons Academy), enhancing user engagement through intuitive interfaces</li>
+          <li>Conducted <span class="highlight">cross-regional UX research across Thailand & Malaysia</span> with 28+ user interviews, identifying market trends and optimizing product strategies based on cultural insights</li>
+          <li>Spearheaded <span class="highlight">brand refinement efforts for 10M+ users</span>, ensuring consistency across digital touchpoints and elevating overall brand identity</li>
+          <li>Designed cutting-edge interfaces that balance user needs with business objectives, driving engagement and conversion through data-informed design decisions</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Digital Content Designer</div>
+            <div class="company">MTR Corporation Limited • Hong Kong's Mass Transit System</div>
+          </div>
+          <div class="date">Aug 2022 — Oct 2023</div>
+        </div>
+        <ul class="achievements">
+          <li>Created over <span class="highlight">300 engaging graphics and content</span> for social media & digital platforms, increasing <span class="highlight">social media followers by 25%</span> and enhancing brand engagement</li>
+          <li>Led integrated media campaigns and digital content marketing strategies to drive engagement, awareness, and visitation across Facebook, Instagram, and YouTube</li>
+          <li>Developed systematic approach to design and campaign graphics, demonstrating how strategic visual communication directly impacts user engagement and business outcomes</li>
+          <li>Identified new market opportunities and formulated e-marketing initiatives to generate sales and brand awareness</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Digital Marketing Officer</div>
+            <div class="company">K11 Concepts Limited • Luxury Retail & Cultural Hub</div>
+          </div>
+          <div class="date">Jan 2022 — Aug 2022</div>
+        </div>
+        <ul class="achievements">
+          <li>Spearheaded innovative <span class="highlight">NFT gamification campaign "Spot the Avatar"</span>, creating comprehensive visual identity that bridged digital collectibles with luxury retail experiences</li>
+          <li>Managed in-mall metavision tours and NFT digital game campaigns, coordinating with creative, editorial, and social teams while partnering with luxury brands (Gucci, Farfetch, Nike, Rosewood)</li>
+          <li>Developed sophisticated graphics and campaign materials for K11 MUSEA app, establishing visual foundation for engaging customer journeys</li>
+          <li>Managed daily content operations across multiple digital touchpoints including app, website, YouTube, WeChat, and Rednote</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section page-break">
+      <h2 class="section-title">Key Projects & Achievements</h2>
+      <div class="key-projects">
+                  <div class="project-item">
+            <div class="project-title">Watsons AI Search Enhancement (2024)</div>
+            <div class="project-desc">Redesigned search experience for 10M+ users through comprehensive user research, information architecture optimization, and intelligent filtering systems.</div>
+            <div class="project-tags">User Research • Usability Testing • Information Architecture • Search UX • AI Integration</div>
+          </div>
+                  <div class="project-item">
+            <div class="project-title">O2O Beauty Booking System Revamp (2023-24)</div>
+            <div class="project-desc">Simplified complex booking flows through user journey mapping, wireframing, and visual UI design, bridging online and offline beauty services.</div>
+            <div class="project-tags">User Journey Mapping • Wireframing • UI Design • O2O Experience</div>
+          </div>
+                  <div class="project-item">
+            <div class="project-title">K11 Interactive Gamification - "Spot the Avatar" (2022)</div>
+            <div class="project-desc">Designed engaging user journeys that bridge digital discovery with physical retail experiences, creating innovative NFT-powered customer engagement.</div>
+            <div class="project-tags">Gamification • Digital Marketing • User Journey Design • NFT Integration • Retail Innovation</div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Education & Certifications</h2>
+      <div class="education-item">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div class="degree">Bachelor of Social Science</div>
+          <div class="date">Sep 2019 — Oct 2021</div>
+        </div>
+        <div class="school">City University of Hong Kong</div>
+        <div style="font-size: 9pt; color: #6b7280;">Major: Asian and International Studies • Minor: Human Resource Management</div>
+      </div>
+      <div class="education-item">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div class="degree">Google UX Design Professional Certificate</div>
+          <div class="date">2023</div>
+        </div>
+        <div class="school">Coursera</div>
+      </div>
+      <div class="education-item">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div class="degree">Adobe UI/UX Web Design Professional Certificate</div>
+          <div class="date">2022</div>
+        </div>
+        <div class="school">Authorized Adobe Training</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem;">
+        
+        <div class="skill-category">
+          <div class="skill-category-title">💻 Software</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            <strong>Design:</strong> Sketch, Figma, XD, Balsamiq, Illustrator, Photoshop<br>
+            <strong>Prototyping & Interaction:</strong> Axure RP, Miro<br>
+            <strong>User Research & Analytics:</strong> Hotjar, Mixpanel, UXcam<br>
+            <strong>Project Management & Collaboration:</strong> Confluence, Jira, Zeplin<br>
+            <strong>Others:</strong> Generative AI tools, Cursor, SEO, HTML, CSS, JavaScript, Midjourney
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🎯 Design Methodologies</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Human-Centered Design, User-Centered Design, Design Thinking, Activity-Focused design, Data-Driven Design, Service Design, Google Design Sprint, Double Diamond, Design System
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🎨 Design Skills</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            UX/UI Design, Responsive Web & App Design, Interaction Design, Prototyping, Visual Communication
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🔍 Research & Analysis</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Qualitative Research, Quantitative Research, User Research & Analysis, Persona, User Journey, User Scenario, Empathy Map, Card sorting
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🧪 Testing & Validation</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Hypothesis & Verification, Usability Testing, A/B Testing, Think-aloud protocols
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">📊 Product Management & Strategy</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Product Management, Social media strategy, Digital Strategy, Account management
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🏗️ Structure & Processes</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Information Architecture, Sitemap, Wireframing, User Flow
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">✨ Other Skills</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Graphic Design, Vibe Coding, Branding, Story Mapping, Presentation, Storytelling, Online Advertising
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-title">🌟 Abilities</div>
+          <div style="font-size: 9pt; line-height: 1.4; color: #374151;">
+            Communication, Collaboration, Empathy, Problem Solving, Creativity, Adaptability, Attention to Detail, Time Management, Logical Thinking, Curiosity, Perceptiveness, Passion for Learning & Knowledge Sharing
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Awards & Leadership</h2>
+      <ul class="achievements">
+        <li><strong>2024:</strong> Business trip to Thailand & Malaysia — Led UI/UX Digital Assessment of the Watsons App with cross-functional team</li>
+        <li><strong>2024:</strong> AS Watsons Annual dinner staff dance performance — Creative collaboration and team leadership</li>
+        <li><strong>2024:</strong> Project LOL Elderly Visit — Provided companionship to over 2,000 elderlies, demonstrating empathy and social responsibility</li>
+        <li><strong>2024:</strong> PNS x MoneyBack App Walkthrough for Golden Agers — Led digital literacy training, bridging technology gaps for seniors</li>
+        <li><strong>2021:</strong> Hong Kong Creative PR Competition — Selected Finals, Brown Award in tertiary team</li>
+        <li><strong>2021:</strong> Research Assistant — Dr. Chan Yuk Wah's Food Politics in Asia project at City University of Hong Kong</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Languages</h2>
+      <div style="display: flex; gap: 1.5rem; font-size: 10pt;">
+        <span><strong>Native:</strong> Cantonese</span>
+        <span><strong>Fluent:</strong> English, Mandarin</span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
