@@ -18,10 +18,28 @@
     .job-title { font-weight: 600; color: var(--text-primary); }
     .company { color: var(--primary-pink); font-weight: 600; }
     .date { color: var(--text-muted); font-size: 14px; }
-    .skills-comprehensive { display: flex; flex-direction: column; gap: var(--space-3); }
-    .skill-category { background: var(--glass); padding: var(--space-3); border-radius: var(--radius-md); }
-    .skill-category strong { color: var(--primary-purple); display: block; margin-bottom: var(--space-1); font-size: 16px; }
-    .skill-category p { margin-bottom: var(--space-1); line-height: 1.6; color: var(--text-primary); }
+    .skills-comprehensive { display: flex; flex-direction: column; gap: var(--space-5); }
+    .skill-category { 
+      background: var(--glass-bg); 
+      backdrop-filter: var(--glass-backdrop);
+      border: 1px solid var(--glass-border);
+      padding: var(--space-4); 
+      border-radius: var(--radius-lg); 
+      box-shadow: var(--shadow-soft);
+    }
+    .skill-category strong { 
+      color: var(--primary-purple); 
+      display: block; 
+      margin-bottom: var(--space-3); 
+      font-size: 18px; 
+      font-weight: 600;
+    }
+    .skill-category p { 
+      margin-bottom: var(--space-2); 
+      line-height: 1.7; 
+      color: var(--text-primary); 
+      font-size: 15px;
+    }
     .skill-category p:last-child { margin-bottom: 0; }
   </style>
 </head>
@@ -145,7 +163,7 @@
           <div class="skill-category">
             <strong>Software:</strong>
             <p>Design: Sketch, Figma, XD, Balsamiq, Illustrator, Photoshop</p>
-            <p>Prototyping & Interaction: Axure RP, Miro</p>
+            <p>Prototyping & Interaction: Axure RP, Miro, Creatie, Motiff, Readdy</p>
             <p>User Research & Analytics: Hotjar, Mixpanel, UXcam</p>
             <p>Project Management & Collaboration: Confluence, Jira, Zeplin</p>
             <p>Others: Generative AI tools, Cursor, SEO, HTML, CSS, JavaScript, Midjourney</p>

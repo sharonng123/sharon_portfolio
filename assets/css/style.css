@@ -1044,3 +1044,107 @@ h3 {
 #graphic-design .grid {
   margin-top: var(--space-6);
 }
+
+/* Social Media Section Styles */
+.social-media-grid {
+  margin: var(--space-5) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.social-media-brand {
+  text-align: center;
+  padding: var(--space-3);
+  background: var(--gradient-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.social-media-brand h4 {
+  margin: 0 0 var(--space-3) 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.social-icon:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--glow-pink);
+}
+
+.social-icon.facebook:hover {
+  background: #1877f2;
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--glow-tiffany);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .social-media-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .social-media-brand {
+    padding: var(--space-2);
+  }
+  
+  .social-media-brand h4 {
+    font-size: 16px;
+    margin-bottom: var(--space-2);
+  }
+  
+  .social-icons {
+    gap: var(--space-2);
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
